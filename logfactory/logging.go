@@ -236,7 +236,7 @@ func NewLogging(opts ...LoggingOpt) Logging {
 
 func (l *logging) getCaller(depth int) string {
 	if l.fileFlag != CallerNone {
-		pc, file, line, ok := runtime.Caller(depth + 3)
+		pc, file, line, ok := Caller(depth+3, true)
 		if !ok {
 			return "???"
 		}
